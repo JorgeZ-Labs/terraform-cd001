@@ -3,7 +3,7 @@ module "servicebus" {
   source   = "../../modules/servicebus"
   name     = local.asb_name
   location = var.location
-  rg_name  = module.resource_group_k8s.rg_name
+  rg_name  = module.resource_group_k8s.name
   sku      = var.sku
 
   queues = var.queues
