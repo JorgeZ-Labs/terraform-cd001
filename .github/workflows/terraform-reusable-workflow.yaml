@@ -70,28 +70,28 @@ jobs:
           ARM_USE_OIDC: true
 
 
-  #     - name: Setup Terraform variables
-  #       working-directory: ${{ env.working-directory }}
-  #       id: vars
-  #       run: |-
-  #         cat > global.auto.tfvars << EOF
-  #         location = "${{ vars.AZURE_LOCATION }}"
-  #         env_name = "${{ vars.ENV_NAME }}"
-  #         env_prefix = "${{ vars.ENV_PREFIX }}"
-  #         user_name = "${{ vars.USER_NAME }}"
-  #         subscription_id = "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
-  #         EOF
+      - name: Setup Terraform variables
+        working-directory: ${{ env.working-directory }}
+        id: vars
+        run: |-
+          cat > global.auto.tfvars << EOF
+          location = "${{ vars.AZURE_LOCATION }}"
+          env_name = "${{ vars.ENV_NAME }}"
+          env_prefix = "${{ vars.ENV_PREFIX }}"
+          user_name = "${{ vars.USER_NAME }}"
+          subscription_id = "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
+          EOF
 
-  #         echo "${{ inputs.vars-file }}" > vars-file.auto.tfvars
-  #         # Replaces *** with " in the vars-file.auto.tfvars
+          echo "${{ inputs.vars-file }}" > vars-file.auto.tfvars
+          # Replaces *** with " in the vars-file.auto.tfvars
 
-  #         sed -i 's/\*\*\*/"/g' vars-file.auto.tfvars
-  #         terraform fmt vars-file.auto.tfvars
-  #         terraform fmt global.auto.tfvars
+          sed -i 's/\*\*\*/"/g' vars-file.auto.tfvars
+          terraform fmt vars-file.auto.tfvars
+          terraform fmt global.auto.tfvars
 
-  #     - name: Verify vars
-  #       run: cat *.auto.tfvars
-  #       working-directory: ${{ env.working-directory }}
+      - name: Verify vars
+        run: cat *.auto.tfvars
+        working-directory: ${{ env.working-directory }}
 
   #     - name: Terraform fmt
   #       id: fmt
