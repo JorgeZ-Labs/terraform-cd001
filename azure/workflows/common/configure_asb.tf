@@ -1,13 +1,9 @@
-data "azurerm_resource_group" "rg" {
-  name = local.rg_general
-}
-
 
 module "servicebus" {
   source   = "../../modules/servicebus"
   name     = local.asb_name
   location = var.location
-  rg_name  = module.resource_group.name
+  rg_name  = module.resource_group.rg_name
   sku      = var.sku
 
   queues = var.queues

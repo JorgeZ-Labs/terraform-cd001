@@ -65,9 +65,9 @@ variable "tags" {
     "ApplicationTag"     = "lan=bs Cloud"
     "Capability"         = "Network and Cloud Services"
     "DataClassification" = "Confidential"
-    "Environment"        = "Sandbox"
+    "Environment"        = "UAT"
     "Lifespan"           = "Months"
-    "OwnerEmail"         = "ivanhidalgo22@gmail.com"
+    "OwnerEmail"         = "jorgezapata010@gmail.com"
     "ProjectInitiative"  = "Default Project"
     "ServiceClass"       = "User Managed"
   }
