@@ -1,5 +1,7 @@
-variable "rg_name" {}
-
+variable "rg_name" {
+  type        = string
+  description = "Name of the resource group to deploy resources into"
+}
 
 variable "name" {
   type        = string
@@ -9,11 +11,6 @@ variable "name" {
 variable "location" {
   type        = string
   description = "Azure region where the resources will be created"
-}
-
-variable "resource_group_name" {
-  type        = string
-  description = "Name of the resource group to deploy resources into"
 }
 
 variable "sku" {
@@ -37,8 +34,8 @@ variable "topics" {
 variable "subscriptions" {
   description = "List of topic subscriptions"
   type = list(object({
-    topic = string
-    name  = string
+    topic              = string
+    name               = string
     max_delivery_count = optional(number, 10) # Default value for max_delivery_count
   }))
   default = []
@@ -50,9 +47,9 @@ variable "subscription_rules" {
     topic        = string
     subscription = string
     name         = string
-    rule_type    = string        # Typically "SqlFilter"
-    filter_type  = string        # Typically "SqlFilter"
-    sql_filter   = string        # Example: "priority = 'high'"
+    rule_type    = string # Typically "SqlFilter"
+    filter_type  = string # Typically "SqlFilter"
+    sql_filter   = string # Example: "priority = 'high'"
   }))
   default = []
 }
