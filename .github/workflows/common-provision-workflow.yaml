@@ -61,7 +61,8 @@ jobs:
           
           echo "tfstate_storage_account_name = ***${{ vars.TF_STATE_SA }}***" >> "${GITHUB_OUTPUT}"
           echo "tfstate_container_name = ***${{ vars.TF_STATE_CONTAINER }}***" >> "${GITHUB_OUTPUT}"
-          echo "tfstate_name = ***${{ format('{0}-common-infrastructure.tfstate', vars.ENV_PREFIX) }}***" >> "${GITHUB_OUTPUT}"
+          echo "tfstate_rg = ***${{ vars.TF_STATE_RG }}***" >> "${GITHUB_OUTPUT}"
+          echo "tfstate_key = ***${{ format('{0}-common-infrastructure.tfstate', vars.ENV_PREFIX) }}***" >> "${GITHUB_OUTPUT}"
           echo "tfstate_subscription_id = ***${{ vars.TF_STATE_SUB }}***" >> "${GITHUB_OUTPUT}"
           # echo "flux_git_url = ***${{ vars.FLUX_GIT_URL }}***" >> "${GITHUB_OUTPUT}"
           # echo "flux_git_https_user = ***${{ vars.FLUX_GIT_USERNAME }}***" >> "${GITHUB_OUTPUT}"
