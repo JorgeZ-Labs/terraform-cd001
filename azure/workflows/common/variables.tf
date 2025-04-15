@@ -9,7 +9,7 @@ variable "env_prefix" {
 }
 
 variable "env_name" {
-  type    = string
+  type = string
 }
 
 variable "tags" {
