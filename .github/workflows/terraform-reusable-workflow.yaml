@@ -142,7 +142,7 @@ jobs:
           fi
           exit_code=$?
           echo "Terraform plan exit code: $exit_code"
-          echo "exit_code=$exit_code" >> $GITHUB_OUTPUT
+          echo "exitcode=$exit_code" >> $GITHUB_OUTPUT
           # TODO: Check with the working directory
           echo "workflow=$(commonname ${{ env.working-directory }})" >> $GITHUB_OUTPUT
         env:
