@@ -4,6 +4,6 @@
 #}
 
 locals {
-  rg_general = "${var.env_prefix}-${var.env_name}-rg-general"
+  rg_general = "lab-${var.env_prefix}-${var.env_name}-rg-general"
   asb_name   = "${var.env_prefix}-${var.env_name}-asb"
 }

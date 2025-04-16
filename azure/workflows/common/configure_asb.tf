@@ -1,18 +1,13 @@
-data "azurerm_resource_group" "rg" {
-  name = local.rg_general
-}
-
 
 module "servicebus" {
-  source              = "../../modules/servicebus"
-  name                = local.asb_name
-  location            = var.location
-  resource_group_name = data.azurerm_resource_group.rg.name
-  rg_name             = data.azurerm_resource_group.rg.name
-  sku                 = "Standard"
+  source   = "../../modules/servicebus"
+  name     = local.asb_name
+  location = var.location
+  rg_name  = module.resource_group_k8s.name
+  sku      = var.sku
 
-  queues              = var.queues
-  topics              = var.topics
+  queues = var.queues
+  topics = var.topics
 
   subscriptions = [
     {
@@ -35,5 +30,6 @@ module "servicebus" {
   tags = {
     environment = var.env_name
     team        = "platform"
+    owner       = "Jorge"
   }
 }
