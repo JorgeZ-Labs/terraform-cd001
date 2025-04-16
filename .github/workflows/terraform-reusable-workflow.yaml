@@ -140,8 +140,9 @@ jobs:
               -detailed-exitcode \
               -out=tfplan > >(tee terraform-plan.txt)
           fi
-          echo "exitcode=$exitcode"
-          echo "exitcode=$exitcode" >> $GITHUB_OUTPUT
+          exit_code=$?
+          echo "Terraform plan exit code: $exit_code"
+          echo "exit_code=$exit_code" >> $GITHUB_OUTPUT
           # TODO: Check with the working directory
           echo "workflow=$(basename ${{ env.working-directory }})" >> $GITHUB_OUTPUT
         env:
