@@ -251,8 +251,8 @@ jobs:
     needs: Terraform-Plan
     steps: 
       - name: Check terraform plan exit
-        run: echo "El exit code del plan fue: ${{ needs.Terraform-Plan.outputs.exitcode }}"
-
+        run: |
+          echo "El exit code del plan fue: ${{ needs.Terraform-Plan.outputs.exitcode }}"
 
   Terraform-Apply:
     runs-on: ubuntu-latest
