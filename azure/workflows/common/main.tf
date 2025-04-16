@@ -5,6 +5,6 @@
 
 locals {
   rg_general = "lab-${var.env_prefix}-${var.env_name}-rg-general"
-  rg_test = "test-${var.env_prefix}-${var.env_name}-rg-general"
+  rg_test    = "test-${var.env_prefix}-${var.env_name}-rg-general"
   asb_name   = "${var.env_prefix}-${var.env_name}-asb"
 }
